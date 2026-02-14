@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest a new optimization pattern, guide, or workflow.
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: value
+    attributes:
+      label: Problem and value
+      description: What user problem will this solve?
+      placeholder: Describe the user need and why it matters.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      placeholder: Describe the change you propose.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: How can we verify the feature works?

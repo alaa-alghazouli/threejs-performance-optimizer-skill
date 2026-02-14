@@ -1,43 +1,64 @@
 # threejs-performance-optimizer
 
-Public AI skill for optimizing Three.js and React Three Fiber projects with a profile-first workflow.
+[![CI](https://github.com/alaa-alghazouli/threejs-performance-optimizer-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/alaa-alghazouli/threejs-performance-optimizer-skill/actions/workflows/ci.yml)
+[![Latest Release](https://img.shields.io/github/v/release/alaa-alghazouli/threejs-performance-optimizer-skill)](https://github.com/alaa-alghazouli/threejs-performance-optimizer-skill/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-## What this skill does
+Public AI skill that helps coding agents optimize Three.js and React Three Fiber performance using a profile-first, docs-aligned workflow.
 
-- Diagnoses bottlenecks (CPU, GPU, memory, loading) before changing code.
-- Prioritizes the highest-ROI fixes first: assets, draw calls, render loop policy, lighting/post, cleanup.
-- Applies current Three.js and R3F guidance, with explicit stale-advice guardrails.
-- Produces measurable before/after recommendations with tradeoffs and verification steps.
+## Why this skill
 
-## Typical trigger prompts
+Most Three.js performance advice online is either generic or outdated. This skill turns optimization into a repeatable process:
 
-- "Optimize my Three.js scene, FPS is unstable"
-- "Reduce draw calls in this R3F app"
-- "Fix stutter when orbiting camera"
-- "Improve mobile performance for this WebGL/WebGPU scene"
-- "Audit my memory leaks in Three.js"
-- "Set up Draco/KTX2 for my GLB pipeline"
-- "Switch this scene to demand rendering"
-- "Tune lights, shadows, and postprocessing cost"
+- Diagnose bottlenecks before touching code (CPU, GPU, memory, loading).
+- Prioritize highest-impact fixes in ROI order.
+- Apply current guidance from official Three.js and R3F docs.
+- Produce measurable before/after results with tradeoffs and verification.
 
-## Example usage prompts
+## Quick start
 
-- "My scene drops to 28 FPS on mobile. Diagnose and optimize with the least visual loss."
-- "I have 2,000 repeated meshes in Three.js. Refactor for fewer draw calls and verify impact."
-- "In R3F, pointer interactions feel janky. Optimize frame-loop and state patterns."
-- "Set up GLTFLoader with Draco + KTX2 correctly and list common pitfalls."
-- "I suspect memory leaks after route changes. Add a proper disposal checklist and fixes."
+1. Download the packaged skill: `dist/threejs-performance-optimizer.skill` or from the [latest release](https://github.com/alaa-alghazouli/threejs-performance-optimizer-skill/releases/latest).
+2. Import it into your AI CLI/tool that supports `.skill` bundles.
+3. Trigger it with prompts like:
+   - "Optimize my Three.js scene, FPS is unstable"
+   - "Reduce draw calls in this R3F app"
+   - "Fix memory leaks in this Three.js route transition"
 
-## Repository contents
+## Demo and examples
 
-- `threejs-performance-optimizer/SKILL.md`: main skill instructions and workflow.
-- `threejs-performance-optimizer/references/*`: focused references for renderer setup, assets, draw calls, memory/disposal, and R3F.
-- `dist/threejs-performance-optimizer.skill`: packaged distributable skill file.
+- Interactive prompt walkthrough: [`docs/DEMO.md`](docs/DEMO.md)
+- Real-world use cases: [`docs/USE_CASES.md`](docs/USE_CASES.md)
+- Skill behavior contract and reference: [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md)
 
-## Source policy
+## What the skill covers
 
-This skill is designed to be docs-aligned and version-safe:
+- Renderer and frame-loop strategy (continuous vs on-demand rendering)
+- Draw-call reduction (instancing, batching, static merge tradeoffs)
+- Asset pipeline optimization (glTF, Draco/Meshopt, KTX2)
+- Lighting, shadows, postprocessing cost control
+- Memory lifecycle and explicit disposal correctness
+- R3F-specific anti-pattern prevention (`setState` in frame loops, remount churn)
+- Outdated-guidance guardrails to avoid stale APIs
 
-- Prefer official docs over blog heuristics.
-- Treat hard thresholds as heuristics, not universal rules.
-- Avoid deprecated or outdated API guidance.
+## Repository structure
+
+- `threejs-performance-optimizer/SKILL.md` - main instructions and optimization workflow.
+- `threejs-performance-optimizer/references/*` - focused, load-on-demand reference docs.
+- `dist/threejs-performance-optimizer.skill` - distributable packaged skill.
+- `docs/*` - demos, use cases, API reference, launch playbook, and showcase.
+
+## Contributing
+
+Contributions are welcome. Start with:
+
+- [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- `good first issue` and `help wanted` labels in the issue tracker
+
+## Community
+
+- Discussions: use GitHub Discussions for questions and ideas.
+- Showcase your results: add your project to [`docs/SHOWCASE.md`](docs/SHOWCASE.md).
+
+## Contributors
+
+Thanks to everyone improving this skill. Add yourself in a PR after your first merged contribution.
